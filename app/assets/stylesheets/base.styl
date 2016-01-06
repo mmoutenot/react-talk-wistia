@@ -1,0 +1,76 @@
+@import '~app/assets/stylesheets/normalize'
+@import '~app/assets/stylesheets/glyphicons'
+@import '~app/assets/stylesheets/notcouriersans'
+
+:global {
+
+  html {
+    box-sizing border-box
+    // Changing to this value so the rems are easier to calculate
+    // 1.4rem = 14px
+    // 2.4rem = 24px
+    font-size 10px
+    position relative
+  }
+
+  *, *:before, *:after {
+    box-sizing inherit
+  }
+
+  body, input, textarea, button {
+    font-family 'Not Courier Sans', monospace
+  }
+
+  body {
+    position relative
+    font-size 1.6rem
+  }
+
+  a {
+    text-decoration none
+    cursor pointer
+  }
+
+  a, a:visited, a:hover, a:active {
+    color inherit
+  }
+
+  button, input[type=submit] {
+    height 4rem
+    padding 1rem 1.5rem
+    background-color white
+    cursor pointer
+    outline none
+    border 1px solid #6C5B7B
+    color #6C5B7B
+
+    &[disabled] {
+      color gray
+      border-color gray
+      border-style dotted
+    }
+
+    &:hover:not([disabled]) {
+      background-color #6C5B7B
+      color white
+    }
+  }
+
+  * {
+    box-sizing border-box
+  }
+
+  input {
+    display block
+    height 4rem
+    padding 1rem 1.5rem
+    border-radius .5rem
+    border 1px solid black
+    color black
+    outline none
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    margin 0
+  }
+}

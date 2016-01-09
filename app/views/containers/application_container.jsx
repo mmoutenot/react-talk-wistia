@@ -1,12 +1,7 @@
 import React               from "react";
 import {connect}           from "react-redux";
 
-import {initializeSession} from "app/auth/actions";
-import {isTokenSet}        from "app/auth/localstorage";
-
 const mapStateToProps = (state) => ({
-  isInitializingSession: state.auth.isInitializingSession,
-  sessionValid: state.auth.sessionValid
 });
 
 /**

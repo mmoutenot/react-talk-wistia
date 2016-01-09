@@ -1,13 +1,11 @@
 import {combineReducers} from "redux";
-import {routeReducer} from 'redux-simple-router';
+import {routeReducer} from "redux-simple-router";
 
-import authReducer from "app/auth/reducer";
-import groupsReducer from "app/groups/reducer";
+import mediaReducer from "app/media/reducer";
 
 const rootReducer = combineReducers({
   routing: routeReducer,
-  auth: authReducer,
-  groups: groupsReducer
+  media: mediaReducer
 });
 
 export default rootReducer;

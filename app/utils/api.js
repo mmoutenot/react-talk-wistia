@@ -1,17 +1,10 @@
 import Request         from "superagent";
 import _               from "lodash";
 
-import {clearAll} from "app/auth/localstorage";
-
 import {CustomPromise} from "app/utils/custom_promise";
-import {
-  isTokenSet,
-  getToken,
-  getCurrentUserId
-} from "app/auth/localstorage";
 
 var TIMEOUT = 15000;
-var BASE_URL = "http://localhost:3001/api"
+var BASE_URL = "https://api.wistia.com/v1/"
 
 function makeUrl(path) {
   if (_.isArray(path)) {
@@ -53,7 +46,7 @@ function digestResponse(resolve, reject, error, request, response, options) {
 
   // Auto-fail with special auth error on 401.
   } else if (response.status === 401 && !options.ignoreAuthFailure) {
-    clearAll();
+    // clearAll();
     window.location = '/#/login'
 
     result.apiError = "AUTH_ERROR";
@@ -119,6 +112,7 @@ function executeRequestFlow(options) {
     options.method = options.method || "GET";
 
     let url = options.absolutePath || makeUrl(options.path);
+    url = url + "?api_password=687ff73422b62f573bd120d63150271f658f9fbcffd9a7d90cdaf541191e1585";
 
     var request = Request(options.method, url);
 
@@ -140,9 +134,9 @@ function executeRequestFlow(options) {
 
     // If you need to set a cookie do as follow:
     // request.set("Cookie", sessionCookie);
-    if (isTokenSet()) {
-      request.set("Authorization", getToken());
-    }
+    // if (isTokenSet()) {
+    //   request.set("Authorization", getToken());
+    // }
 
     if (options.body) {
       request.send(options.body);
